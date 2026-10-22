@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#190e1b" />
+    <meta
+      name="description"
+      content="A little universe of love, made for Nusrat Jahan."
+    />
+    <title>Forever, My Nusrat ♡</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --pink: #eeb3c1;
+        --rose: #b45c78;
+        --cream: #fff3eb;
+        --ink: #241420;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: #1b101c;
+        color: var(--cream);
+        font-family: "DM Sans", sans-serif;
+        overflow-x: hidden;
+      }
+      button {
+        font: inherit;
+        cursor: pointer;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .serif {
+        font-family: "Playfair Display", serif;
+      }
+      .script {
+        font-family: "Great Vibes", cursive;
+        font-weight: 400;
+      }
+      .grain {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 30;
+        opacity: 0.12;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+      }
+      .nav {
+        position: absolute;
+        z-index: 12;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 26px max(5vw, 20px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .brand {
+        font:
+          30px "Great Vibes",
+          cursive;
+      }
+      .navlinks {
+        display: flex;
+        gap: 28px;
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .navlinks a:hover {
+        color: #ffcad7;
+      }
+      .music {
+        border: 1px solid #ffffff6b;
+        border-radius: 99px;
+        padding: 10px 15px;
+        background: #ffffff16;
+        color: white;
+      }
+      .hero {
+        min-height: 100svh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 100px 20px 80px;
+        isolation: isolate;
+        overflow: hidden;
+      }
+      .hero:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, #180b19d9, #210e1b8c 55%, #190b19b8),
+          linear-gradient(0deg, #1b101c 0%, transparent 35%),
+          url("images/photo-20.jpg") center 36% / cover;
+        z-index: -2;
+        animation: zoom 22s ease-in-out infinite alternate;
+      }
+      .hero:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 50% 50%,
+          transparent 10%,
+          #160a1699 100%
+        );
+        z-index: -1;
+      }
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.36em;
+        text-transform: uppercase;
+        color: #f4c7d1;
+      }
+      .hero h1 {
+        font:
+          clamp(65px, 12vw, 170px)/0.95 "Great Vibes",
+          cursive;
+        margin: 28px 0 10px;
+        color: #ffe0e7;
+        text-shadow: 0 8px 45px #2b081c;
+      }
+      .hero .sub {
+        font:
+          italic clamp(17px, 2.3vw, 25px) "Playfair Display",
+          serif;
+        line-height: 1.6;
+        max-width: 640px;
+        margin: 20px auto 35px;
+      }
+      .pill {
+        border: 1px solid #eab4c5;
+        background: #eab4c5;
+        color: #361627;
+        border-radius: 40px;
+        padding: 16px 30px;
+        font-size: 12px;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        font-weight: 700;
+        transition: 0.3s;
+      }
+      .pill:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 40px #ffb6ce60;
+      }
+      .scroll {
+        position: absolute;
+        bottom: 28px;
+        letter-spacing: 0.25em;
+        font-size: 10px;
+        text-transform: uppercase;
+        opacity: 0.7;
+      }
+      .section {
+        padding: 110px 5vw;
+        text-align: center;
+      }
+      .section .kicker {
+        color: #b46e87;
+        font-size: 11px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+      }
+      .section h2 {
+        font:
+          clamp(38px, 5vw, 70px) "Playfair Display",
+          serif;
+        margin: 18px 0 18px;
+      }
+      .section p.lead {
+        max-width: 620px;
+        line-height: 1.9;
+        color: #bda8b6;
+        margin: 0 auto 48px;
+      }
+      .intro {
+        background: radial-gradient(
+          ellipse at center top,
+          #3c1e30,
+          #1b101c 65%
+        );
+      }
+      .heart-divider {
+        font: 32px "Great Vibes";
+        color: #efabc0;
+        margin: 25px;
+      }
+      .gallery {
+        background: #f9f0eb;
+        color: #3c2431;
+      }
+      .gallery .lead {
+        color: #7e6974 !important;
+      }
+      .gallery .kicker {
+        color: #a95772;
+      }
+      .masonry {
+        columns: 4 220px;
+        column-gap: 16px;
+        max-width: 1280px;
+        margin: 0 auto;
+        text-align: left;
+      }
+      .shot {
+        display: block;
+        break-inside: avoid;
+        margin-bottom: 16px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        background: #decbd1;
+        cursor: pointer;
+        box-shadow: 0 8px 28px #46233315;
+      }
+      .shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+        transition:
+          transform 0.7s ease,
+          filter 0.7s;
+      }
+      .shot:hover img {
+        transform: scale(1.06);
+        filter: saturate(1.1);
+      }
+      .shot:after {
+        content: "♡";
+        position: absolute;
+        right: 14px;
+        bottom: 8px;
+        font-size: 32px;
+        color: white;
+        text-shadow: 0 2px 10px #0007;
+        opacity: 0;
+        transition: 0.3s;
+      }
+      .shot:hover:after {
+        opacity: 1;
+      }
+      .reasons {
+        background: linear-gradient(135deg, #231321, #452439 65%, #241322);
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        max-width: 1080px;
+        margin: auto;
+      }
+      .reason {
+        padding: 48px 28px;
+        border: 1px solid #f5c8d139;
+        border-radius: 14px;
+        background: #ffffff08;
+        transition: 0.3s;
+      }
+      .reason:hover {
+        transform: translateY(-8px);
+        background: #ffffff13;
+      }
+      .reason .num {
+        font: 40px "Great Vibes";
+        color: #e9a8bd;
+      }
+      .reason h3 {
+        font: 25px "Playfair Display";
+        margin: 14px 0;
+      }
+      .reason p {
+        font-size: 14px;
+        color: #d6bdcb;
+        line-height: 1.8;
+      }
+      .quote {
+        background: #f9f0eb;
+        color: #412336;
+        padding: 110px 20px;
+      }
+      .quote blockquote {
+        font: italic clamp(29px, 5vw, 61px)/1.35 "Playfair Display";
+        max-width: 950px;
+        margin: 0 auto;
+      }
+      .quote .sign {
+        font: 37px "Great Vibes";
+        color: #ae5c78;
+        margin-top: 32px;
+      }
+      .letter {
+        background: radial-gradient(ellipse at center, #5a2c42, #21111f 72%);
+        padding-bottom: 130px;
+      }
+      .envelope {
+        width: min(360px, 80vw);
+        height: 225px;
+        margin: 35px auto;
+        position: relative;
+        background: #e5a5b9;
+        border-radius: 8px;
+        box-shadow: 0 20px 60px #0005;
+        cursor: pointer;
+        transition: transform 0.35s;
+      }
+      .envelope:hover {
+        transform: translateY(-8px);
+      }
+      .envelope:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        clip-path: polygon(0 0, 50% 60%, 100% 0);
+        background: #f9cbd5;
+        z-index: 2;
+      }
+      .envelope:after {
+        content: "♥";
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        background: #ae4265;
+        color: white;
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        display: grid;
+        place-items: center;
+        font-size: 23px;
+        box-shadow: 0 3px 15px #7a2b4666;
+      }
+      .envelope .fold {
+        position: absolute;
+        inset: 0;
+        background: #df93ac;
+        clip-path: polygon(0 100%, 50% 40%, 100% 100%);
+        z-index: 1;
+      }
+      .hint {
+        font-size: 12px;
+        color: #d9b8c5;
+        letter-spacing: 0.14em;
+      }
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: #170c17e8;
+        z-index: 50;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        backdrop-filter: blur(12px);
+      }
+      .modal.open {
+        display: flex;
+      }
+      .paper {
+        position: relative;
+        max-width: 600px;
+        max-height: 85vh;
+        overflow: auto;
+        background: #fff7f1;
+        color: #4b293a;
+        padding: clamp(30px, 6vw, 70px);
+        border-radius: 8px;
+        box-shadow: 0 30px 100px #0007;
+        text-align: center;
+        animation: rise 0.5s ease;
+      }
+      .paper h3 {
+        font: clamp(48px, 8vw, 80px) "Great Vibes";
+        color: #b25b79;
+        margin: 0 0 15px;
+      }
+      .paper p {
+        font: italic 17px/2 "Playfair Display";
+      }
+      .close {
+        position: absolute;
+        right: 16px;
+        top: 12px;
+        border: 0;
+        background: none;
+        color: inherit;
+        font-size: 27px;
+      }
+      .lightbox img {
+        max-height: 85vh;
+        max-width: 90vw;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+      .lightbox .close {
+        position: fixed;
+        right: 30px;
+        top: 25px;
+        color: white;
+      }
+      .end {
+        background: #180e19;
+        text-align: center;
+        padding: 75px 20px;
+      }
+      .end h2 {
+        font: 65px "Great Vibes";
+        margin: 0;
+        color: #f6bfd0;
+      }
+      .end p {
+        color: #bda3b4;
+        font-size: 12px;
+        letter-spacing: 0.15em;
+      }
+      .float-heart {
+        position: fixed;
+        pointer-events: none;
+        z-index: 25;
+        bottom: -30px;
+        color: #ffc1d3;
+        opacity: 0;
+        animation: floatUp linear forwards;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(25px);
+        transition:
+          opacity 0.8s,
+          transform 0.8s;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @keyframes floatUp {
+        0% {
+          opacity: 0;
+          transform: translateY(0) rotate(-15deg);
+        }
+        12% {
+          opacity: 0.8;
+        }
+        85% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-110vh) rotate(25deg);
+        }
+      }
+      @keyframes zoom {
+        to {
+          transform: scale(1.09);
+        }
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(25px) scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @media (max-width: 700px) {
+        .navlinks {
+          gap: 13px;
+          font-size: 10px;
+        }
+        .navlinks a:nth-child(2) {
+          display: none;
+        }
+        .nav {
+          padding: 20px;
+        }
+        .brand {
+          font-size: 26px;
+        }
+        .cards {
+          grid-template-columns: 1fr;
+        }
+        .section {
+          padding: 75px 18px;
+        }
+        .masonry {
+          columns: 2 130px;
+          column-gap: 10px;
+        }
+        .shot {
+          margin-bottom: 10px;
+        }
+        .hero h1 {
+          font-size: clamp(66px, 16vw, 100px);
+        }
+        .hero:before {
+          background-position:
+            center,
+            center,
+            55% center;
+        }
+        .reason {
+          padding: 30px;
+        }
+        .quote {
+          padding: 75px 20px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *:before,
+        *:after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grain"></div>
+    <nav class="nav">
+      <a class="brand" href="#home">N ♡ S</a>
+      <div class="navlinks">
+        <a href="#story">Our story</a><a href="#memories">Memories</a
+        ><a href="#letter">Love letter</a>
+      </div>
+      <button class="music" id="music" aria-label="Toggle background music">
+        ♫ Music: Off
+      </button>
+    </nav>
+    <header class="hero" id="home">
+      <div>
+        <div class="eyebrow">
+          A little corner of the universe · Just for you
+        </div>
+        <h1>Forever, My Nusrat</h1>
+        <div class="eyebrow">Nusrat Jahan ♡ Shawon</div>
+        <p class="sub">
+          If I had to choose a thousand lifetimes, I'd still find my way back to
+          you in every single one.
+        </p>
+        <a href="#story" class="pill">Open our little love story ♡</a>
+      </div>
+      <div class="scroll">↓ &nbsp; Scroll to feel the love</div>
+    </header>
+    <section class="section intro" id="story">
+      <div class="reveal">
+        <div class="kicker">To the one who owns my heart</div>
+        <h2>
+          Every love story is beautiful.<br /><em>Ours is my favorite.</em>
+        </h2>
+        <div class="heart-divider">♡ ♡ ♡</div>
+        <p class="lead">
+          Nusrat, you turn ordinary days into unforgettable memories. Your smile
+          is my favorite view, your happiness is my favorite wish, and being
+          beside you is the most beautiful part of my life. This little website
+          is just one more way to say: I love you.
+        </p>
+      </div>
+    </section>
+    <section class="section gallery" id="memories">
+      <div class="kicker reveal">Snapshots of forever</div>
+      <h2 class="reveal">Our beautiful <em>memories</em></h2>
+      <p class="lead reveal">
+        From the sweetest selfies to days by the sea — every photograph holds a
+        piece of our story.
+      </p>
+      <div class="masonry" id="photos"></div>
+    </section>
+    <section class="section reasons">
+      <div class="kicker reveal">A thousand reasons, and counting</div>
+      <h2 class="reveal">The little things I <em>adore</em></h2>
+      <p class="lead reveal">
+        There are more reasons than I could ever fit on one page. Here are just
+        a few.
+      </p>
+      <div class="cards">
+        <div class="reason reveal">
+          <div class="num">01 ♡</div>
+          <h3>Your smile</h3>
+          <p>
+            It has a way of making even the hardest day feel softer, brighter,
+            and full of hope.
+          </p>
+        </div>
+        <div class="reason reveal">
+          <div class="num">02 ♡</div>
+          <h3>Our little moments</h3>
+          <p>
+            The selfies, the adventures, the laughter — I wish I could bottle
+            every second.
+          </p>
+        </div>
+        <div class="reason reveal">
+          <div class="num">03 ♡</div>
+          <h3>Simply you</h3>
+          <p>
+            I don't need a perfect day or a perfect place. Being with you is
+            enough.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="quote">
+      <div class="kicker reveal">My favorite promise</div>
+      <blockquote class="reveal">
+        “No matter how many pages life gives us, I want to write every chapter
+        with you.”
+      </blockquote>
+      <div class="sign">— Your Shawon ♡</div>
+    </section>
+    <section class="section letter" id="letter">
+      <div class="kicker reveal">Something I want you to know</div>
+      <h2 class="reveal">A letter for <em>my Nusrat</em></h2>
+      <p class="lead reveal">
+        I saved the most important words for last. Tap the envelope, my love.
+      </p>
+      <div
+        class="envelope"
+        id="envelope"
+        role="button"
+        tabindex="0"
+        aria-label="Open love letter"
+      >
+        <div class="fold"></div>
+      </div>
+      <div class="hint">♡ TAP TO OPEN ♡</div>
+    </section>
+    <footer class="end">
+      <h2>Always & Forever ♡</h2>
+      <p>MADE WITH ALL MY LOVE, FOR NUSRAT JAHAN · FROM SHAWON</p>
+    </footer>
+    <div
+      class="modal"
+      id="letterModal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Love letter"
+    >
+      <div class="paper">
+        <button class="close" data-close aria-label="Close">×</button>
+        <h3>My dearest Nusrat,</h3>
+        <p>
+          Some people spend their whole lives looking for a love that feels like
+          home. I found mine in you.
+        </p>
+        <p>
+          Every smile, every silly little moment, every photograph of us reminds
+          me how lucky I am to walk through life with you. You make my world
+          warmer and my future brighter.
+        </p>
+        <p>
+          I may not always find the perfect words, but please know this: you are
+          my favorite person, my sweetest blessing, and my forever choice.
+        </p>
+        <p>In every tomorrow, I choose you again.</p>
+        <h3>Forever yours,<br />Shawon ♡</h3>
+      </div>
+    </div>
+    <div
+      class="modal lightbox"
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Photo preview"
+    >
+      <button class="close" data-close aria-label="Close">×</button
+      ><img id="bigPhoto" alt="Our memory" />
+    </div>
+    <script>
+      const gallery = document.getElementById("photos");
+      const photos = Array.from(
+        { length: 20 },
+        (_, i) => `images/photo-${String(i + 1).padStart(2, "0")}.jpg`,
+      );
+      const order = [
+        20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1,
+      ];
+      order.forEach((n, i) => {
+        let d = document.createElement("div");
+        d.className = "shot reveal";
+        d.innerHTML = `<img loading="lazy" src="${photos[n - 1]}" alt="A cherished memory ${i + 1}">`;
+        d.addEventListener("click", () => {
+          document.getElementById("bigPhoto").src = photos[n - 1];
+          document.getElementById("lightbox").classList.add("open");
+        });
+        gallery.append(d);
+      });
+      const observer = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          }),
+        { threshold: 0.08 },
+      );
+      document.querySelectorAll(".reveal").forEach((e) => observer.observe(e));
+      const lm = document.getElementById("letterModal");
+      const openLetter = () => {
+        lm.classList.add("open");
+        for (let i = 0; i < 24; i++) setTimeout(heart, i * 80);
+      };
+      document.getElementById("envelope").onclick = openLetter;
+      document.getElementById("envelope").onkeydown = (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openLetter();
+        }
+      };
+      document
+        .querySelectorAll("[data-close]")
+        .forEach(
+          (b) =>
+            (b.onclick = () => b.closest(".modal").classList.remove("open")),
+        );
+      document.querySelectorAll(".modal").forEach((m) =>
+        m.addEventListener("click", (e) => {
+          if (e.target === m) m.classList.remove("open");
+        }),
+      );
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape")
+          document
+            .querySelectorAll(".modal")
+            .forEach((m) => m.classList.remove("open"));
+      });
+      function heart() {
+        const h = document.createElement("div");
+        h.className = "float-heart";
+        h.textContent = ["♡", "♥", "✦"][Math.floor(Math.random() * 3)];
+        h.style.left = Math.random() * 100 + "vw";
+        h.style.fontSize = 14 + Math.random() * 22 + "px";
+        h.style.animationDuration = 5 + Math.random() * 5 + "s";
+        document.body.append(h);
+        setTimeout(() => h.remove(), 11000);
+      }
+      setInterval(() => {
+        if (!document.hidden && Math.random() > 0.35) heart();
+      }, 1200);
+      // Soft generative chimes: starts only after a user gesture; no external audio or copyrighted music.
+      let audioCtx,
+        playing = false,
+        timer;
+      const music = document.getElementById("music");
+      const notes = [261.63, 329.63, 392, 523.25, 440, 392, 329.63, 293.66];
+      let note = 0;
+      function chime() {
+        if (!playing || !audioCtx) return;
+        let osc = audioCtx.createOscillator(),
+          gain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.value = notes[note++ % notes.length];
+        gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(
+          0.045,
+          audioCtx.currentTime + 0.04,
+        );
+        gain.gain.exponentialRampToValueAtTime(
+          0.0001,
+          audioCtx.currentTime + 1.3,
+        );
+        osc.connect(gain).connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 1.35);
+      }
+      music.onclick = async () => {
+        if (!audioCtx)
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === "suspended") await audioCtx.resume();
+        playing = !playing;
+        music.textContent = playing ? "♫ Music: On" : "♫ Music: Off";
+        if (playing) {
+          chime();
+          timer = setInterval(chime, 650);
+        } else clearInterval(timer);
+      };
+    </script>
+  </body>
+</html>
